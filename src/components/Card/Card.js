@@ -5,7 +5,7 @@ import { CardTitle, CardText } from "./Card.styles";
 
 const Card = ({ game, onSelect }) => {
   return (
-    <BSCard style={{ flex: 1 }}>
+    <BSCard>
       <BSCard.Img variant="top" src={game.imgUrl} alt={game.title} />
       <BSCard.Body>
         <CardTitle>{game.title}</CardTitle>
