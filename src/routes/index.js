@@ -5,7 +5,7 @@ import ErrorFallback from "../components/ErrorBoundary";
 
 import Loading from "../components/Loading";
 
-const Home = React.lazy(() => import("../pages/Home"));
+const Home = React.lazy(() => import("../pages/Home/Home"));
 const AddGame = React.lazy(() => import("../pages/AddGame"));
 const About = React.lazy(() => import("../pages/About"));
 
