@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 
 import Card from "../../components/Card/Card";
 
-import { fetchGames } from "../../Api";
+import { fetchGames } from "../../services/game";
 import { Container } from "./Home.styles";
 
 const resource = fetchGames();
@@ -27,7 +27,7 @@ const Home = () => {
           <Card key={game.title} game={game} onSelect={onSelectGame} />
         ))}
       </Container>
-      <Modal show={show} fullscreen={false} onHide={() => setShow(false)}>
+      <Modal show={show} onHide={() => setShow(false)}>
         <Modal.Header closeButton>
           <Modal.Title>{selectedGame.title}</Modal.Title>
         </Modal.Header>
