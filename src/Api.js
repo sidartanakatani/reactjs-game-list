@@ -1,20 +1,13 @@
 import axios from "axios";
 
-export const fetchGames = () => {
-  const gamesPromise = getGames();
-  return {
-    games: wrapPromise(gamesPromise),
-  };
-};
+const API_URL = "http://localhost:5000";
 
-export const fetchGame = (id) => {
-  const gamePromise = getGame(id);
-  return {
-    game: wrapPromise(gamePromise),
-  };
-};
+export const api = axios.create({
+  baseURL: API_URL,
+  timeout: 3000,
+});
 
-const wrapPromise = (promise) => {
+export const wrapPromise = (promise) => {
   // Set initial status
   let status = "pending";
   // Store result
@@ -44,16 +37,4 @@ const wrapPromise = (promise) => {
   };
 };
 
-const getGames = () => {
-  return axios
-    .get("http://localhost:5000/games")
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
-};
-
-const getGame = (id) => {
-  return axios
-    .get(`http://localhost:5000/games/${id}`)
-    .then((res) => res.data)
-    .catch((err) => console.log(err));
-};
+export default api;
