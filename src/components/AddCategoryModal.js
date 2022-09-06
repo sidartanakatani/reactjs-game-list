@@ -1,11 +1,12 @@
 import React from "react";
+import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
-
-import axios from "axios";
+import { useCategory } from "../context/CategoryContext";
 
 const AddCategoryModal = ({ show, setShow }) => {
+  const { setCategories } = useCategory();
   const [categoryName, setCategoryName] = React.useState("");
 
   const onSubmit = (e) => {
@@ -16,8 +17,7 @@ const AddCategoryModal = ({ show, setShow }) => {
         categoryName,
       })
       .then(function (response) {
-        console.log(response);
-
+        setCategories((prevState) => [...prevState, response.data]);
         setShow(false);
       })
       .catch(function (error) {

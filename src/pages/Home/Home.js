@@ -1,19 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "react-bootstrap/Image";
 import Modal from "react-bootstrap/Modal";
-
 import Card from "../../components/Card/Card";
-
+import { useCategory } from "../../context/CategoryContext";
+import { fetchCategories } from "../../services/category";
 import { fetchGames } from "../../services/game";
 import { Container } from "./Home.styles";
 
-const resource = fetchGames();
+const gamesResource = fetchGames();
+const categoriesResource = fetchCategories();
 
 const Home = () => {
-  const games = resource.games.read();
+  const games = gamesResource.games.read();
+  const categories = categoriesResource.categories.read();
 
   const [show, setShow] = useState(false);
   const [selectedGame, setSelectedGame] = useState({});
+  const { setCategories } = useCategory();
+
+  useEffect(() => {
+    if (categories.length > 0) {
+      setCategories(categories);
+    }
+  }, [categories, setCategories]);
 
   const onSelectGame = (game) => {
     setSelectedGame(game);

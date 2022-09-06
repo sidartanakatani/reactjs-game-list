@@ -5,14 +5,11 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import AddCategoryModal from "./AddCategoryModal";
-import { fetchCategories } from "../services/category";
-
-const resource = fetchCategories();
+import { useCategory } from "../context/CategoryContext";
 
 const Header = ({ title }) => {
   const [show, setShow] = React.useState(false);
-
-  const categories = resource.categories.read();
+  const { categories } = useCategory();
 
   const handleAddCategory = () => {
     setShow(true);
