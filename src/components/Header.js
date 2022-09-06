@@ -38,7 +38,6 @@ const Header = ({ title }) => {
                   Add Category
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/add-game">Add Game</NavDropdown.Item>
-                <NavDropdown.Item href="/about">About</NavDropdown.Item>
                 <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
                 <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
               </NavDropdown>

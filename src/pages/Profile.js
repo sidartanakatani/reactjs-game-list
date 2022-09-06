@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const About = () => {
+const Profile = () => {
   return (
     <>
-      <h4> Version 1.0.0</h4>
+      <h1>Profile</h1>
       <Link to="/">Go back</Link>
     </>
   );
 };
 
-export default About;
+export default Profile;

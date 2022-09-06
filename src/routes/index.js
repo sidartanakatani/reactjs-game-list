@@ -7,7 +7,7 @@ import Loading from "../components/Loading";
 
 const Home = React.lazy(() => import("../pages/Home/Home"));
 const AddGame = React.lazy(() => import("../pages/AddGame"));
-const About = React.lazy(() => import("../pages/About"));
+const Profile = React.lazy(() => import("../pages/Profile"));
 
 const routes = () => {
   return (
@@ -17,7 +17,7 @@ const routes = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/add-game" element={<AddGame />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </React.Suspense>
       </ErrorBoundary>
