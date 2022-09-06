@@ -24,7 +24,7 @@ const Header = ({ title }) => {
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <NavDropdown title="Categories" id="collasible-nav-dropdown">
+              <NavDropdown title="Categories" id="nav-categories-dropdow">
                 {categories.map((category) => (
                   <NavDropdown.Item key={category.categoryName} href="/action">
                     {category.categoryName}
@@ -33,11 +33,15 @@ const Header = ({ title }) => {
               </NavDropdown>
             </Nav>
             <Nav>
-              <Nav.Link onClick={handleAddCategory}>Add Category</Nav.Link>
-              <Nav.Link href="/add-game">Add Game</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/profile">Profile</Nav.Link>
-              <Nav.Link href="/profile">Logout</Nav.Link>
+              <NavDropdown title="My Account" id="nav-my-account-dropdow">
+                <NavDropdown.Item onClick={handleAddCategory}>
+                  Add Category
+                </NavDropdown.Item>
+                <NavDropdown.Item href="/add-game">Add Game</NavDropdown.Item>
+                <NavDropdown.Item href="/about">About</NavDropdown.Item>
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Item href="/logout">Logout</NavDropdown.Item>
+              </NavDropdown>
             </Nav>
           </Navbar.Collapse>
         </Container>
