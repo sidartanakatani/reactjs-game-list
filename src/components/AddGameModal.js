@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 
@@ -34,7 +36,7 @@ const AddGame = () => {
 
   // Add Game
   const addGame = async (game) => {
-    await fetch("http://localhost:5000/games/", {
+    const res = await fetch("http://localhost:5000/games/", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -42,17 +44,17 @@ const AddGame = () => {
       body: JSON.stringify(game),
     });
 
-    // const data = await res.json();
+    const data = await res.json();
   };
 
   // Delete Task
-  // const deleteTask = async (id) => {
-  //   await fetch(`http://localhost:5000/tasks/${id}`, {
-  //     method: "DELETE",
-  //   });
+  const deleteTask = async (id) => {
+    await fetch(`http://localhost:5000/tasks/${id}`, {
+      method: "DELETE",
+    });
 
-  //   setTasks(tasks.filter((task) => task.id !== id));
-  // };
+    // setTasks(tasks.filter((task) => task.id !== id));
+  };
 
   return (
     <>
